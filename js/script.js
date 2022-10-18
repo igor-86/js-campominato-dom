@@ -28,22 +28,43 @@ clickButton.addEventListener("click", function(){
     console.log(arrayBombsRandom);
 
 
-
+    const boxList = document.getElementsByClassName("box");
+    console.log(boxList);
 
     for (let i = 0; i < arraynumbers.length;i++){
         
         //creo il box
-        const box = document.createElement("div");
+        let box = document.createElement("div");
         box.classList.add("box");
         box.innerHTML= arraynumbers[i];
 
-        //aggiungo event al click sul box
+     /*    //aggiungo event al click sul box
         box.addEventListener("click", function(){
             this.classList.add("box-color")
-        })
+        }) */
 
         //append finale
         wrapper.append(box);
+
+    //Evento click su array di bombe
+
+    let click = 0;
+    box.addEventListener("click", function(){
+        if(arrayBombsRandom.includes(parseInt(this.innerHTML))){
+            console.log(this.textContent);
+            
+            for (let b = 0; b < arrayBombsRandom.length; b++){
+                boxList[arrayBombsRandom[b]-1].classList.add("b-red");
+            }
+        } else {
+            this.classList.add("box-color");
+            console.log(this.textContent);
+        }
+    })
+
+
+
+
     }
 })
 
