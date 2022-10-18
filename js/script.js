@@ -18,7 +18,15 @@ clickButton.addEventListener("click", function(){
     wrapper.innerHTML="";
 
     //Genero un array random di massimo 16 numeri con le bombe
-    
+    let arrayBombsRandom = [];
+    while(arrayBombsRandom.length < 16){
+        let bombsNumber = getRndInteger(1,100);
+        if(!arrayBombsRandom.includes(bombsNumber)){
+            arrayBombsRandom.push(bombsNumber);
+        }
+    }
+    console.log(arrayBombsRandom);
+
 
 
 
@@ -39,6 +47,14 @@ clickButton.addEventListener("click", function(){
     }
 })
 
+
+/* Functions */
+
+//numeri random
+
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
 
 
 
