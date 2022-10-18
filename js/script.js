@@ -1,33 +1,44 @@
-//Chiedere all’utente di inserire una parola
-//Creare una funzione per capire se la parola inserita è palindroma.
-const wrapper = document.querySelector(".row-wrap");
-const buttonStart = document.getElementById("btn");
-console.log(buttonStart);
-console.log(wrapper);
+//array vuoto esterno
+let arraynumbers = [];
+console.log(arraynumbers);
+let n = 1;
 
-//evento al click del bottone
-buttonStart.addEventListener("click", function(){
-wrapper.innerHTML="";
-for (let i = 1; i <= 100; i++){
-    console.log(i);
+while(arraynumbers.length < 100){
+    arraynumbers.push(n); 
     
-    //Creo i quadrati
-    const boxCreate = document.createElement("div");
-    boxCreate.classList.add("box");
-    boxCreate.innerHTML = i;
-
-    //Rendo i quadrati cliccabili
-    boxCreate.addEventListener("click", function(){
-        this.classList.add("box-color");
-        console.log(this.textContent);
-    })
-
-    
-    
-    wrapper.append(boxCreate);
+    n++;
 }
 
+const wrapper = document.querySelector(".row-wrap");
+const clickButton = document.getElementById("btn");
+
+//event play
+clickButton.addEventListener("click", function(){
+    //pulisco il wrapper
+    wrapper.innerHTML="";
+
+    //Genero un array random di massimo 16 numeri con le bombe
+    
+
+
+
+    for (let i = 0; i < arraynumbers.length;i++){
+        
+        //creo il box
+        const box = document.createElement("div");
+        box.classList.add("box");
+        box.innerHTML= arraynumbers[i];
+
+        //aggiungo event al click sul box
+        box.addEventListener("click", function(){
+            this.classList.add("box-color")
+        })
+
+        //append finale
+        wrapper.append(box);
+    }
 })
+
 
 
 
