@@ -11,7 +11,7 @@ while(arraynumbers.length < 100){
 
 const wrapper = document.querySelector(".row-wrap");
 const clickButton = document.getElementById("btn");
-
+let message = document.querySelector(".message");
 //event play
 clickButton.addEventListener("click", function(){
     //pulisco il wrapper
@@ -30,6 +30,7 @@ clickButton.addEventListener("click", function(){
 
     const boxList = document.getElementsByClassName("box");
     console.log(boxList);
+    let click = 1;
 
     for (let i = 0; i < arraynumbers.length;i++){
         
@@ -48,7 +49,7 @@ clickButton.addEventListener("click", function(){
 
     //Evento click su array di bombe
 
-    let click = 0;
+    let clicked = 1;
     box.addEventListener("click", function(){
         if(arrayBombsRandom.includes(parseInt(this.innerHTML))){
             console.log(this.textContent);
@@ -56,9 +57,13 @@ clickButton.addEventListener("click", function(){
             for (let b = 0; b < arrayBombsRandom.length; b++){
                 boxList[arrayBombsRandom[b]-1].classList.add("b-red");
             }
+        //messaggio su schermo...
+        message.innerHTML = `Hai perso dopo ${click} tentativi`;
+        console.log(message);
         } else {
             this.classList.add("box-color");
             console.log(this.textContent);
+            click += clicked;
         }
     })
 
@@ -66,6 +71,7 @@ clickButton.addEventListener("click", function(){
 
 
     }
+    console.log(click);
 })
 
 

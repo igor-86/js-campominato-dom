@@ -43,6 +43,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 .row-wrap {
     width: 600px;
@@ -62,6 +63,15 @@
     align-items: center;
     cursor: pointer;
     background-color: white;
+}
+.message {
+    height: 100px;
+    width: 200px;
+    
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .box-color {
